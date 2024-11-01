@@ -23,6 +23,9 @@ def test_main_flow(setup_device):
 """
 
 times = 2
+#账户  和密码
+account = account
+password = password
 #@pytest.fixture(autouse=True)
 @pytest.mark.usefixtures("setup_device")
 def test_login_and_navigate(setup_device):
@@ -31,7 +34,7 @@ def test_login_and_navigate(setup_device):
     home_page = HomePage(driver)
     time.sleep(times)
     # 登录操作
-    login_page.login("scott@insona.cc", "A85652265")
+    login_page.login(account, password)
     time.sleep(times)
     # 验证主页是否加载
     assert driver(text="连接现有系统").exists, "登录失败，未能找到连接页面"
